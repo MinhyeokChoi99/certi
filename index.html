@@ -570,7 +570,7 @@
     const sessionName = document.getElementById("sessionName");
     const sourceMeta = document.getElementById("sourceMeta");
     const questionCountMeta = document.getElementById("questionCountMeta");
-    let questions = questionBank;
+    let questions = shuffleQuestions(questionBank);
     let activeYear = ALL;
     let activeSession = ALL;
     let activeSubject = ALL;
@@ -578,6 +578,15 @@
     let selected = null;
     let submitted = false;
     let results = [];
+
+    function shuffleQuestions(items) {
+      const shuffled = [...items];
+      for (let index = shuffled.length - 1; index > 0; index -= 1) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+      }
+      return shuffled;
+    }
 
     function escapeHtml(value) {
       return String(value)
@@ -642,6 +651,7 @@
     }
 
     function resetProgress() {
+      questions = shuffleQuestions(questions);
       current = 0;
       selected = null;
       submitted = false;
