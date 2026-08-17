@@ -1,0 +1,15 @@
+.DS_Store
+.vercel/
+
+# 원본 PDF, ZIP, 추출 임시 파일은 배포에 필요하지 않습니다.
+tmp/
+output/
+
+# Python 생성 파일
+__pycache__/
+*.py[cod]
+
+# 로컬 환경 변수
+.env
+.env.*
+!.env.example
