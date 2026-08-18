@@ -257,6 +257,17 @@
     }
     .choice-input:checked + .choice-label .choice-letter { border-color: var(--accent); color: var(--accent-deep); background: #fff; }
     .choice-text { font-size: 15px; }
+    .question-title,
+    .question-copy,
+    .choice-text,
+    .feedback-answer,
+    .explanation-summary,
+    .solution-step > span:last-child,
+    .concept-card strong,
+    .choice-note {
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
     .choice-label.is-correct { border-color: #9ad5b8; background: var(--green-soft); }
     .choice-label.is-correct .choice-letter { border-color: var(--green); color: var(--green); background: #fff; }
     .choice-label.is-wrong { border-color: #e9a6ae; background: var(--red-soft); }
@@ -712,7 +723,7 @@
             <span class="feedback-icon">${isCorrect ? "✓" : "!"}</span>
             <span class="feedback-title">${isCorrect ? "정답입니다" : "아쉽지만 오답입니다"}</span>
           </div>
-          <p class="feedback-answer">정답은 <strong>${letters[question.answer]} ${escapeHtml(question.choices[question.answer])}</strong>입니다.</p>
+          <p class="feedback-answer">정답은 <strong>${letters[question.answer]}번</strong>입니다. <span class="feedback-answer-text">${escapeHtml(question.choices[question.answer])}</span></p>
           <div class="explanation">
             <div class="explanation-grid">
               <div>
